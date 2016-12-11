@@ -1,0 +1,52 @@
+
+.c-card {
+  border-radius: var(--border-radius-10);
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-content: stretch;
+  box-shadow: 0px 3px 5px color(var(--color-black) alpha(20%));
+}
+
+.c-card--color-white {
+  background: var(--color-white);
+}
+
+.c-card--neutral {
+  background: var(--color-neutral-10);
+}
+
+.c-card--color-primary {
+  background: var(--color-primary-30);
+}
+
+
+  .c-card__content {
+    padding: var(--spacing) var(--spacing) 0.1px var(--spacing);
+  }
+
+  .c-card__content-tournament {
+    text-align: center;
+    color: var(--color-primary-70);
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .c-card__image {
+
+    & img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .c-card__image--background {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    flex: auto;
+    height: 0;
+    padding-bottom: 56.25%;
+  }

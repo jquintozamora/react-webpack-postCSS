@@ -1,0 +1,59 @@
+/* Grid Layout */
+
+.c-grid {
+  margin: 0 -10px;
+  margin-bottom: 20px;
+}
+.c-grid:last-child {
+  margin-bottom: 0;
+}
+[class*="c-grid__col-"] {
+  padding: 10px;
+  //border: 1px solid black;
+}
+
+.c-grid__col-2-3 {
+  float: left;
+  width: 66.66%;
+}
+.c-grid__col-1-2 {
+  float: left;
+  width: 50%;
+}
+.c-grid__col-1-3 {
+  float: left;
+  width: 33.33%;
+}
+.c-grid__col-1-4 {
+  float: left;
+  width: 25%;
+}
+.c-grid__col-1-8 {
+  float: left;
+  width: 12.5%;
+}
+
+
+@media (--small-viewport) {
+  .c-grid__col-2-3 {
+    float: left;
+    width: 100%;
+  }
+  .c-grid__col-1-2 {
+    float: left;
+    width: 100%;
+  }
+  .c-grid__col-1-3 {
+    float: left;
+    width: 100%;
+  }
+  .c-grid__col-1-4 {
+    float: left;
+    width: 100%;
+  }
+  .c-grid__col-1-8 {
+    float: left;
+    width: 100%;
+  }
+}
+

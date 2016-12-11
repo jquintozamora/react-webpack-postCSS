@@ -1,0 +1,22 @@
+/****************************
+ * BASE - TABLE
+ ****************************/
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: calc(var(--spacing) * 2);
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+td, th {
+  padding: 0.35rem 0;
+}
+
+tfoot td {
+  border-top: 2px solid var(--color-neutral-30);
+}

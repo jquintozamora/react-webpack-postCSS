@@ -1,0 +1,84 @@
+/*------------------------------------
+ *SETTINGS-GLOBAL
+ *------------------------------------*/
+
+/*
+ * Most of the variables are based on some kind of percentages to maintain stability and consistency.
+ */
+
+
+
+:root {
+
+  /*
+   * Set your font
+   */
+  --font-default: -apple-system, BlinkMacSystemFont, Segoe UI, Arial, Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+
+
+  /*
+   * Set your font size
+   */
+  --font-size-base: 100%;
+  --font-size-10: 0.75rem;
+  --font-size-20: 0.875rem;
+  --font-size-30: 1rem;
+  --font-size-40: 1.125rem;
+  --font-size-50: 1.25rem;
+
+
+  /*
+   * Default spacing for margin-bottom and other paddings
+   */
+  --spacing: 1rem;
+
+
+  /*
+   * Maximum width of the website
+   */
+  --max-width: 1140px;
+
+
+  /*
+   * Adjust the border-radius
+   */
+  --border-radius-10: 0.125rem;
+  --border-radius-30: 3rem;
+  --border-radius-50: 5rem;
+
+
+  --html-font-size:    62.5%;
+  --body-font-size:    16px;
+  --em-base:           26;
+  --base-font-size:    10px;
+
+  --gutter-half:       1rem;
+  --gutter-full:       calc(var(--gutter-half) * 2);
+
+  --wrapper-xsmall:    98rem;
+  --wrapper-small:     68rem;
+  --wrapper-standard:  102rem;
+  --wrapper-large:     144rem;
+
+  --cubic:             cubic-bezier(0.63, 0.64, 0.3, 1);
+  --timing:            500ms;
+  --timing-fast:       350ms;
+
+  
+  --line-short:        1.1;
+  --line-standard:     1.25;
+  --line-medium:       1.5;
+  --line-tall:         2;
+
+
+
+  --z-pit:          -1;
+  --z-default:      1;
+  --z-footer:       5;
+  --z-header:       10;
+  --z-nav:          20;
+  --z-announce:     30;
+  --z-modal:        40;
+  --z-overlay:      50;
+  --z-browsehappy:  60;
+}

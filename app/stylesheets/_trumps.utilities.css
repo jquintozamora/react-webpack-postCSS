@@ -1,0 +1,83 @@
+/****************************
+ * UTILITIES
+ ****************************/
+
+
+/**
+ * ABSOLUTE CENTERING (ie9+)
+ * Parent container will need to have a height and/or width for these to work.
+ */
+
+.u-centered {
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.u-centered-x {
+  display: block;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.u-centered-y {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.u-float-left {
+  float: left;
+}
+
+/**
+ * HELPERS
+ */
+
+/* Visually hide elements while at the */
+/* same time make them accessible on screen readers */
+.u-hidden {
+  margin: -1px !important;
+  padding: 0 !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  clip: rect(0 0 0 0) !important;
+  clip: rect(0, 0, 0, 0) !important;
+  position: absolute !important;
+}
+
+.u-ellipsis {
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+
+
+/**
+ * CLEAR FIX
+ */
+
+.u-simple-cf {
+  overflow: hidden;
+}
+
+.u-clearfix {
+  zoom: 1 !important;
+
+  &:before,
+  &:after {
+    content: "\0020" !important;
+    display: block !important;
+    height: 0 !important;
+    overflow: hidden !important;
+  }
+
+  &:after {
+    clear: both !important;
+  }
+}

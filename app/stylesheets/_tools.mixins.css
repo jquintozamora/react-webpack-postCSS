@@ -1,0 +1,207 @@
+/****************************
+ * MIXINS
+ ****************************/
+
+
+/**
+ * General
+ */
+
+@define-mixin bg-cover {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+/**
+ * Fonts
+ */
+
+@define-mixin font $name: default, $weight: normal {
+  font-family: get-font-stack($name, $weight);
+  font-weight: get-font-weight($weight);
+}
+
+@define-mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(get-color(black), 0.004);
+}
+
+@define-mixin no-font-smoothing {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+  text-shadow: none;
+}
+
+
+/**
+ * Breakpoints
+ */
+@define-mixin breakpoint $point, $type: 'min' {
+  @if $print-media {
+    @if $point == 'print' {
+      @media print {
+        @content;
+      }
+    } @else {
+      @content;
+    }
+  } @else {
+    $breakpoint: null;
+    @if type-of($point) == 'number' {
+      @if unitless($point) or unit($point) == 'em' or unit($point) == 'rem' or unit($point) == '%' {
+        @warn 'Please use pixel values.';
+      } @else {
+        $breakpoint: $point;
+      }
+    } @else if map-has-key($breakpoints, $point) {
+      $breakpoint: map-get($breakpoints, $point);
+    }
+
+    @if $breakpoint != null {
+      @if $type == 'max' {
+        @media screen and (width >= em($breakpoint - 1px)) {
+          @content;
+        }
+      } @else {
+        @media screen and (width <= em($breakpoint)) {
+          @content;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * REM Sizing
+ */
+
+/**
+ * This is a modified version of
+ * http://davidensinger.com/2013/03/using-rems-with-sass/
+
+ * Base font size in pixels, if not already defined.
+ * Should be the same as the font-size of the html element.
+ * You will find the setting under /variables/_settings.scss
+ * Look for $base-font-size
+ */
+@define-mixin rem $property, $values, $use-px-fallback: $rem-with-px-fallback {
+  /* Create a couple of empty lists as output buffers. */
+  $font-size: $base-font-size;
+  $px-values: ();
+  $rem-values: ();
+
+    /* Loop through the $values list */
+  @each $value in $values {
+    /* For each property value, if it's in rem or px, derive both rem and px */
+    /* values for it and add those to the end of  the appropriate buffer. */
+    /* Ensure all pixel values are rounded to the nearest pixel. */
+    @if $value == 0 or $value == 0px {
+      /* 0 -- use it without a unit */
+      $px-values: join($px-values, 0);
+      $rem-values: join($rem-values, 0);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == px) {
+      /* px value given - calculate rem value from font-size */
+      $new-rem-value: $value / $font-size;
+      $px-values: join($px-values, round($value));
+      $rem-values: join($rem-values, $(new)rem-value}rem);
+    } @else if type-of($value) == number and not unitless($value) and (unit($value) == "%") {
+      /* % value given - don't add px or rem */
+      $px-values: join($px-values, $(value));
+      $rem-values: join($rem-values, $(value));
+    } @else if $value == auto {
+      /* auto - don't add px or rem */
+      $px-values: join($px-values, auto);
+      $rem-values: join($rem-values, auto);
+    } @else {
+      /* unitless value - use those directly as rem and calculate the px-fallback */
+      $px-values: join($px-values, round($value * $font-size));
+      $rem-values: join($rem-values, $(value)rem);
+    }
+  }
+
+  /* Output the converted rules */
+  /* Use pixel fallback for browsers that don't understand rem units. */
+  @if $use-px-fallback {
+    $(property): $px-values;
+  }
+  $(property): $rem-values;
+}
+
+
+/**
+ * Layout
+ */
+
+@define-mixin push-left {
+  display: block;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+@define-mixin push-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@define-mixin push-right {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+/* max-width container with multiple options, see variables for options */
+/* ex: @mixin wrapper medium */
+@define-mixin wrapper $size, $position: 'center' {
+  width: 100%;
+  max-width: $wrapper-$(size);
+  @mixin push-$(position);
+}
+
+/* gutter between columns, see variables for options */
+/* ex: @mixin gutter or @mixin gutter large */
+@define-mixin gutter $size: 'half' {
+  padding-left: $gutter-$(size);
+  padding-right: $gutter-$(size);
+}
+
+/**
+ * Input Placeholders
+ */
+
+@define-mixin placeholder {
+  &::-webkit-input-placeholder {
+    @content;
+  }
+  &:-moz-placeholder {
+    @content;
+  }
+  &::-moz-placeholder {
+    @content;
+  }
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+
+/**
+ * Animation Keyframes
+ */
+
+@define-mixin keyframes $name {
+  @-webkit-keyframes $(name) {
+    @content;
+  }
+  @-moz-keyframes $(name) {
+    @content;
+  }
+  @-ms-keyframes $(name) {
+    @content;
+  }
+  @keyframes $(name) {
+    @content;
+  }
+}

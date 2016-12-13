@@ -1,0 +1,19 @@
+/*------------------------------------*\
+  #COMPONENTS-BUTTONS
+\*------------------------------------*/
+
+:root {
+      --base: #ffc600;
+      --spacing: 10px;
+      --blur: 10px;
+    }
+
+   .c-colorpicker img {
+      padding: var(--spacing);
+      background: var(--base);
+      filter: blur(var(--blur));
+    }
+
+   .c-colorpicker .hl {
+      color: var(--base);
+    }

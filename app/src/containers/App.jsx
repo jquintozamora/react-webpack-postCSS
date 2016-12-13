@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import GridLayout from './../components/GridLayout.jsx';
 import { getResults } from "../utils/mock/mockApi";
 
+require('core-js');
+
+
 export default class App extends Component {
 
   constructor(props) {

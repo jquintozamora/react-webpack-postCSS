@@ -7,6 +7,7 @@ Playing with CSS tech
 - [A completed Guide to Grid](https://css-tricks.com/snippets/css/complete-guide-grid/)
 - [React Responsive Grid](https://github.com/KyleAMathews/react-responsive-grid)
 - Lots of components with BEMIT and PostCSS [here](https://github.com/AljanScholtens/taiga-boilerplate/tree/master/assets/stylesheets)
+- input color polyfill: https://github.com/jonstipe/color-polyfill
 
 ## Features
 - [React](https://facebook.github.io/react) 

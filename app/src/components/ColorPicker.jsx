@@ -4,23 +4,32 @@ export default class ColorPicker extends Component {
 
     constructor(props) {
         super(props);
+        
+        // TODOs
+        // Look into css variables polyfill internet explorer 11
+        // Follow this conversation between CSS Variables and React
+        //      Add support for CSS variables in style attributes
+        // Look into how PostCSS handle the CSS Variables. It convert in compile time? Are the variables passed into the CSS memory?
+        
     }
 
-    handleUpdate(e) {
+    handleRangeUpdate = (e) => {
         const suffix = e.target.dataset.sizing || '';
-        debugger;
         document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value + suffix);
     }
 
     componentDidUpdate() {
+        //IMPORTANT, when we are using input range or color in React, we have
+        // two choices:
+        // 1. Controlled (by React) if we use the property value, and then automatically it need to be handle in the state
+        // 2. UnControlled. Then we should use defaultValue instead value.
+        // More info: https://facebook.github.io/react/docs/forms.html
+        
         const inputs = document.querySelectorAll('.controls input');
-
-
-
-        //inputs.forEach(input => input.addEventListener('change', this.handleUpdate));
+        inputs.forEach(input => input.addEventListener('change', this.handleUpdate));
         inputs.forEach(input => input.addEventListener('mousemove', this.handleUpdate));
-
     }
+
     render() {
 
         return (
@@ -29,13 +38,13 @@ export default class ColorPicker extends Component {
 
                 <div className="controls">
                     <label htmlFor="spacing">Spacing:</label>
-                    <input type="range" name="spacing" min="10" max="200" value="10" onChange={this.handleUpdate} data-sizing="px" />
+                    <input type="range" name="spacing" min="10" max="200" defaultValue="10" data-sizing="px" />
 
                     <label htmlFor="blur">Blur:</label>
-                    <input type="range" name="blur" min="0" max="25" value="10" onChange={this.handleUpdate} data-sizing="px" />
+                    <input type="range" name="blur" min="0" max="25" defaultValue="10" data-sizing="px" />
 
                     <label htmlFor="base">Base Color</label>
-                    <input type="color" name="base" value="#ffc600" onChange={this.handleUpdate} />
+                    <input type="color" name="base" defaultValue="#ffc600" />
                 </div>
             </div>
         );

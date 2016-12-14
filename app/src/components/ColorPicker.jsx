@@ -7,10 +7,10 @@ export default class ColorPicker extends Component {
         
         // TODOs
         // Look into css variables polyfill internet explorer 11
-        // Follow this conversation between CSS Variables and React
+        // Follow this conversation between CSS Variables and React: https://github.com/facebook/react/issues/6411
         //      Add support for CSS variables in style attributes
         // Look into how PostCSS handle the CSS Variables. It convert in compile time? Are the variables passed into the CSS memory?
-        
+
     }
 
     handleRangeUpdate = (e) => {

@@ -15,6 +15,8 @@ export default class ColorPicker extends Component {
 
     handleRangeUpdate = (e) => {
         const suffix = e.target.dataset.sizing || '';
+        debugger;
+        console.log(e);
         document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value + suffix);
     }
 
@@ -26,8 +28,8 @@ export default class ColorPicker extends Component {
         // More info: https://facebook.github.io/react/docs/forms.html
         
         const inputs = document.querySelectorAll('.controls input');
-        inputs.forEach(input => input.addEventListener('change', this.handleUpdate));
-        inputs.forEach(input => input.addEventListener('mousemove', this.handleUpdate));
+        inputs.forEach(input => input.addEventListener('change', this.handleRangeUpdate));
+        inputs.forEach(input => input.addEventListener('mousemove', this.handleRangeUpdate));
     }
 
     render() {

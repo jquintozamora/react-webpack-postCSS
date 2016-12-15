@@ -15,9 +15,17 @@ export default class ColorPicker extends Component {
 
     handleRangeUpdate = (e) => {
         const suffix = e.target.dataset.sizing || '';
-        debugger;
-        console.log(e);
+        
+
+        // Because we are using postCSS to handle the CSS transformation, we can´t use setProperty directly with --variables
+        // As they will be transformed by postCSS plugin https://github.com/postcss/postcss-custom-properties#variables
+        // in order to be compatible with older versions doesn´t support css variables https://www.w3.org/TR/css-variables/ var(--name);
+        // That means, even if you can "transpile" CSS Variables to provide the right value in the CSS, you can´t use them as a variables,
+        // you can use as a constants to define the first status, but NOT variables to modify the behaviour of a given class by changing the variables
+        // values with JavaScript.
         document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value + suffix);
+        console.log(document.documentElement.style);
+
     }
 
     componentDidUpdate() {
@@ -48,6 +56,9 @@ export default class ColorPicker extends Component {
                     <label htmlFor="base">Base Color</label>
                     <input type="color" name="base" defaultValue="#ffc600" />
                 </div>
+
+                <img src="https://source.unsplash.com/7bwQXzbF6KE/800x500" />
+
             </div>
         );
     }

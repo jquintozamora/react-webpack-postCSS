@@ -55,8 +55,18 @@ module.exports = {
   ],
   postcss: function (webpack) {
     return [
-      require("postcss-import")({ addDependencyTo: webpack }), // Must be first item in list
-      require("postcss-cssnext")()
+      require("postcss-import")({ 
+        //If you are using postcss-import v8.2.0 & postcss-loader v1.0.0 or later, this is unnecessary.
+        //addDependencyTo: webpack // Must be first item in list
+      }), 
+      require("postcss-nesting")(),
+      require("postcss-custom-properties")({
+        preserve: true //"computed"
+      }),
+      require("postcss-custom-media")(),
+      require("autoprefixer")({
+        browsers: ["last 1 version"] //https://github.com/ai/browserslist
+      })
     ];
   },
   module: {

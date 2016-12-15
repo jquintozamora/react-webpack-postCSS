@@ -8,6 +8,9 @@ Playing with CSS tech
 - [React Responsive Grid](https://github.com/KyleAMathews/react-responsive-grid)
 - Lots of components with BEMIT and PostCSS [here](https://github.com/AljanScholtens/taiga-boilerplate/tree/master/assets/stylesheets)
 - input color polyfill: https://github.com/jonstipe/color-polyfill
+- CSS Variables are a bad idea: https://www.aaron-gustafson.com/notebook/css-variables-are-a-bad-idea/
+- Shim vs Polyfill: http://www.2ality.com/2011/12/shim-vs-polyfill.html
+- Shim, Fallbacks and Polyfills: https://ruthlesslyhelpful.net/2011/05/26/html5-shims-fallbacks-and-polyfills/
 
 ## Features
 - [React](https://facebook.github.io/react) 

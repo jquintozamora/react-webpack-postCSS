@@ -15,6 +15,7 @@
     "stats": "set NODE_ENV=production && webpack --progress --config ./webpack/webpack.stats.config.js --profile --json > ./webpack/stats/stats.json"
   },
   "devDependencies": {
+    "autoprefixer": "^6.5.4",
     "babel-core": "~6.3.15",
     "babel-loader": "~6.2.0",
     "babel-plugin-transform-class-properties": "^6.19.0",
@@ -24,9 +25,11 @@
     "css-loader": "~0.25.0",
     "extract-text-webpack-plugin": "~1.0.1",
     "opener": "~1.4.2",
-    "postcss-cssnext": "^2.9.0",
+    "postcss-custom-media": "^5.0.1",
+    "postcss-custom-properties": "^5.0.1",
     "postcss-import": "^9.0.0",
     "postcss-loader": "^1.2.0",
+    "postcss-nesting": "^2.3.1",
     "react-hot-loader": "~3.0.0-beta.6",
     "style-loader": "~0.13.1",
     "webpack": "~1.13.3",

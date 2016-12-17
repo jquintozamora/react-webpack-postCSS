@@ -37,7 +37,7 @@ export default class ColorPicker extends Component {
         
         const inputs = document.querySelectorAll('.controls input');
         inputs.forEach(input => input.addEventListener('change', this.handleRangeUpdate));
-        inputs.forEach(input => input.addEventListener('mousemove', this.handleRangeUpdate));
+        //inputs.forEach(input => input.addEventListener('mousemove', this.handleRangeUpdate));
     }
 
     render() {

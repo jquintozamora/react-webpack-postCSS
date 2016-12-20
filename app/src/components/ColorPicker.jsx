@@ -25,6 +25,7 @@ export default class ColorPicker extends Component {
         // values with JavaScript.
         document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value + suffix);
         console.log(document.documentElement.style);
+        // CSS variables
 
     }
 

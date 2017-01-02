@@ -24,7 +24,7 @@ export default class ColorPicker extends Component {
         // you can use as a constants to define the first status, but NOT variables to modify the behaviour of a given class by changing the variables
         // values with JavaScript.
         document.documentElement.style.setProperty(`--${e.target.name}`, e.target.value + suffix);
-        console.log(document.documentElement.style);
+        //console.log(document.documentElement.style);
 
     }
 
@@ -37,7 +37,7 @@ export default class ColorPicker extends Component {
         
         const inputs = document.querySelectorAll('.controls input');
         inputs.forEach(input => input.addEventListener('change', this.handleRangeUpdate));
-        inputs.forEach(input => input.addEventListener('mousemove', this.handleRangeUpdate));
+        //inputs.forEach(input => input.addEventListener('mousemove', this.handleRangeUpdate));
     }
 
     render() {

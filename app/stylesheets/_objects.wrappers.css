@@ -25,6 +25,12 @@
   max-width: var(--wrapper-large);
 }
 
+.o-title {
+  text-align: center;
+  font-size: 30px;
+  padding: 35px 15px 15px 15px;
+}
+
 .o-ui-list {
   list-style: none;
   padding: 0;

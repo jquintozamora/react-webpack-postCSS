@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import GridLayout from './../components/GridLayout.jsx';
+import ColorPicker from "./../components/ColorPicker.jsx";
+
 import { getResults } from "../utils/mock/mockApi";
 
 require('core-js');
@@ -50,7 +52,10 @@ export default class App extends Component {
 
     return (
       <div className="o-wrapper">
+        <div className="o-title">Grid Layout Test with Post CSS</div>
         <GridLayout data={this.state.data} />
+        <div className="o-title">CSS Variables test with Post CSS</div>
+        <ColorPicker />
       </div>
     );
   }

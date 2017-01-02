@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
 import EventCard from "./EventCard.jsx";
-import ColorPicker from "./ColorPicker.jsx";
 
 const Event = ({ name }) => <div> [player1 firstName] [player1 lastName] [player1 country] vs [player2 firstName] [player2 lastName] [player2 country] {name} </div> // Stateless/Pure component
 
@@ -25,7 +24,7 @@ export default class GridLayout extends Component {
         return (
             <div className="c-grid">
                 {this._getColumns()}
-                <ColorPicker />
+                <div className="u-div-clear"></div>
             </div>
         );
     }

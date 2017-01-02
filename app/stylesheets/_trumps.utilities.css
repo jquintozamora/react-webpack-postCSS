@@ -62,6 +62,10 @@
  * CLEAR FIX
  */
 
+.u-div-clear {
+  clear: both;
+}
+
 .u-simple-cf {
   overflow: hidden;
 }

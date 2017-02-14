@@ -51,14 +51,16 @@ module.exports = {
       * If you are using the CLI, the webpack process will not exit with an error code by enabling this plugin. 
       * If you want webpack to "fail" when using the CLI, please check out the bail option
       */
+    // prints more readable module names in the browser console on HMR updates
+    new webpack.NamedModulesPlugin(),
     new webpack.NoErrorsPlugin()
   ],
   postcss: function (webpack) {
     return [
-      require("postcss-import")({ 
+      require("postcss-import")({
         //If you are using postcss-import v8.2.0 & postcss-loader v1.0.0 or later, this is unnecessary.
         //addDependencyTo: webpack // Must be first item in list
-      }), 
+      }),
       require("postcss-nesting")(),
       require("postcss-custom-properties")({
         preserve: true //"computed"
